@@ -17,7 +17,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.5
       
     - name: Authenticate to GitHub packages
-      run: dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Zina-420001498/index.json"
+      run: dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name "PrimeService 0.1.0" "https://nuget.pkg.github.com/Zina-420001498/index.json"
       
     #- name: restore package
     #  run: |
