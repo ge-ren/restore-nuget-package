@@ -5,12 +5,11 @@ namespace check4prime
 {
     class Program
     {
-	private readonly PrimeService _primeService;
-
         static void Main(string[] args)
         {
-	    _primeService = new PrimeService(); 	
-            Console.WriteLine(string.Format("Hello World! {0}", _primeService.IsPrime(2)));
+	    var primeService = new PrimeService(); 
+	    var result = primeService.IsPrime(4);
+            Console.WriteLine(string.Format("Hello World! {0}", primeService.IsPrime(2)));
         }
     }
 }
