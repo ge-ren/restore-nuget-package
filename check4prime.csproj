@@ -6,6 +6,6 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="PrimeService" Version="0.0.1" />
+    <PackageReference Include="PrimeService" Version="0.1.0" />
   </ItemGroup>
 </Project>
