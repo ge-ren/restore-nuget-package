@@ -4,7 +4,6 @@ Project check4Prime consumes a service 'Prime' from nuget package, previously ge
 To authenticate to GitHub package registry added PAT to the repo secrets.
 
 To restore nuget packkage added the following to the check4prime.csproj:
-
   <ItemGroup>
     <PackageReference Include="PrimeService" Version="0.0.1" />
   </ItemGroup>
