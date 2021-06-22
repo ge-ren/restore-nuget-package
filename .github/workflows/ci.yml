@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ github.actor }}
+      PAT: ${{ secrets.PAT }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    #- name: Authenticate to GitHub packages
+    #  run: dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Zina-420001498/index.json"
+      
+    - name: restore package
+      run: |
+        nuget sources add -name "PrimeService" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText --username ${USERNAME} --password ${PAT
+        dotnet restore dotnet-build-test.sln
+      #working-directory: ConsoleApp1
+      #env:
+      #  Password: ${{ secrets.PackagePAT }}
