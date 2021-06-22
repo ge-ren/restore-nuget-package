@@ -21,8 +21,8 @@ jobs:
       
     - name: restore package
       run: |
-        nuget sources add -name "PrimeService" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText --username ${USERNAME} --password ${PAT
-        dotnet restore dotnet-build-test.sln
+        nuget sources add --name "PrimeService" --source "https://nuget.pkg.github.com/Zina-420001498/index.json" --store-password-in-clear-text --username ${USERNAME} --password ${PAT}
+        dotnet restore "dotnet-build-test.sln"
       #working-directory: ConsoleApp1
       #env:
       #  Password: ${{ secrets.PackagePAT }}
