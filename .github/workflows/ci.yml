@@ -19,7 +19,7 @@ jobs:
     - name: Authenticate to GitHub packages
       run: |
             dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name "PrimeService 0.1.0" "https://nuget.pkg.github.com/Zina-420001498/index.json"
-            dotnet restore "PrimeService 0.1.0"
+            dotnet restore "dotnet-build-test.sln"
       
     #- name: restore package
     #  run: |
