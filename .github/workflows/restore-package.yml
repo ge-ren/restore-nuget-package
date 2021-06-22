@@ -1,0 +1,32 @@
+name: restore package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    env:
+      USERNAME: ${{ github.actor }}
+      PAT: ${{ secrets.PAT }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1   
+      
+    - name: Authenticate to GitHub packages
+      run: dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Zina-420001498/index.json"
+      
+    #- name: restore package
+    #  run: |
+    #    nuget sources add --source "https://nuget.pkg.github.com/Zina-420001498/index.json" --store-password-in-clear-text --username ${USERNAME} --password ${PAT}
+    #   dotnet restore "PrimeService"
+      #working-directory: ConsoleApp1
+      #env:
+      #  Password: ${{ secrets.PackagePAT }}
