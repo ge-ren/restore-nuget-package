@@ -22,10 +22,5 @@ jobs:
             #dotnet restore
             nuget restore
       
-    #- name: restore package
-    #  run: |
-    #    nuget sources add --source "https://nuget.pkg.github.com/Zina-420001498/index.json" --store-password-in-clear-text --username ${USERNAME} --password ${PAT}
-    #   dotnet restore "PrimeService"
-      #working-directory: ConsoleApp1
-      #env:
-      #  Password: ${{ secrets.PackagePAT }}
+    - name: Build
+      run: dotnet build 
