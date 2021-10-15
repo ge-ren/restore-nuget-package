@@ -18,9 +18,6 @@ jobs:
       
     - name: Authenticate to GitHub packages
       run: |
-            #dotnet nuget add source --username ${USERNAME} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/ge-ren/index.json"
-            #dotnet nuget add source --username ${USERNAME} --password ${PAT} --store-password-in-clear-text --name "PrimeService 0.0.1" "https://nuget.pkg.github.com/ge-ren/index.json"
-            
             dotnet nuget add source --username ${USERNAME} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name "PrimeService 0.0.1" "https://nuget.pkg.github.com/ge-ren/index.json"
             dotnet restore
       
